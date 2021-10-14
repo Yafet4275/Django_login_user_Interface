@@ -26,6 +26,15 @@ class HelloApiView(APIView):                  #Va a ser la clase de un APIview d
            return Response({'message': message})
         else:
            return Response(
-               serializer.error,
+               serializer.errors,
                status=status.HTTP_400_BAD_REQUEST
            )
+    
+    def put(self, request, pk=None):                        #Manage an object update
+       return Response({'method':'PUT'})
+
+    def patch(self, request, pk=None):                      #Parcial manage update object  
+        return Response({'method': 'PATCH'})
+    
+    def delete(self, request, pk=None):                      #Delete an object  
+        return Response({'method': 'DELETE'})
